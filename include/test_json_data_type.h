@@ -1,20 +1,20 @@
 #pragma once
 
-#include "nlohmann/json.hpp"
+#include "nlohmann/ordered_json.hpp"
 #include <iomanip>
 #include <iostream>
 #include <string>
 
 namespace json_test {
 
-// using nljson_t = nlohmann::ordered_json;
-using nljson_t = nlohmann::json;
+using nljson_t = nlohmann::ordered_json;
+// using nljson_t = nlohmann::json;
 
 struct with_pod_array_t {
   std::string str;
   int arr[8]{0};
 };
-NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE(with_pod_array_t, str, arr);
+NLOHMANN_DEFINE_ORDERED_TYPE_NON_INTRUSIVE(with_pod_array_t, str, arr);
 
 struct complex_struct_t {
   with_pod_array_t pod_arr;
