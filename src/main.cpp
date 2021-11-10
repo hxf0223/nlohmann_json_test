@@ -14,7 +14,7 @@ TEST(json, save) {
   to_json(js, c);
 
   std::ofstream file("test_data.json");
-  file << js;
+  file << std::setw(2) << js;
 }
 
 TEST(json, load) {

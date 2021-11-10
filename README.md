@@ -15,4 +15,4 @@ make
 * [nlohmann json，从嵌套结构转换到嵌套结构](https://blog.lzys.cc/p/1740982.html)
 * [glog](https://github.com/google/glog)
 * [google test](https://github.com/google/googletest)
-
+* [现代 C++ 编译时 结构体字段反射](https://zhuanlan.zhihu.com/p/88144082)
