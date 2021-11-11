@@ -7,6 +7,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set( CMAKE_C_FLAGS "-O0 -g -Wall -rdynamic -std=c++11 -fPIC ${CMAKE_C_FLAGS}" )
 set( CMAKE_CXX_FLAGS "-O0 -g -Wall -rdynamic -std=c++11 -fPIC ${CMAKE_CXX_FLAGS}" )
 
+set(GTEST_ROOT "/usr/local" CACHE STRING "set google test and glog's top dir.")
+message(STATUS "google-test's top dir: ${GTEST_ROOT}")
+
 # cmake -DGLOG_ROOT_DIR=???
 # set( CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake )
 # find_package(Glog REQUIRED)
