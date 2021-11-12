@@ -4103,11 +4103,13 @@ void from_json(const BasicJsonType& j, std::valarray<T>& l)
     });
 }
 
+#include <iostream>
 template<typename BasicJsonType, typename T, std::size_t N>
 auto from_json(const BasicJsonType& j, T (&arr)[N])  // NOLINT(cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays)
 -> decltype(j.template get<T>(), void())
 {
-    for (std::size_t i = 0; i < N; ++i)
+    std::size_t len = (N > j.size()) ? j.size() : N;    // FIXME: huangxiaofeng
+    for (std::size_t i = 0; i < len; ++i)
     {
         arr[i] = j.at(i).template get<T>();
     }
