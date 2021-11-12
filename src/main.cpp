@@ -12,6 +12,7 @@ TEST(json, save) {
   nljson_t js;
   complex_struct_t c;
   c.pod_arr_vec = std::vector<with_pod_array_t>(2);
+  strcpy(c.name, "this is a test string.");
   to_json(js, c);
 
   std::ofstream file("test_data.json");
