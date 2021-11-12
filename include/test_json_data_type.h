@@ -4,6 +4,7 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
+#include <vector>
 
 namespace json_test {
 
@@ -17,16 +18,17 @@ struct with_pod_array_t {
 NLOHMANN_DEFINE_ORDERED_TYPE_NON_INTRUSIVE(with_pod_array_t, str, arr);
 
 struct complex_struct_t {
+  std::vector<with_pod_array_t> pod_arr_vec;
   with_pod_array_t pod_arr;
   int vi;
 };
 
 /* if implementation locate in cpp file and this is a so project,
- * the to_json/from_json functions must export to caller.
- */
+ * the to_json/from_json functions must export to caller. */
 void to_json(nljson_t &j, const complex_struct_t &c) {
   // clang-format off
   j = nljson_t{
+    {"pod_arr_vec", c.pod_arr_vec},
     {"pod_arr", c.pod_arr},
     {"vi", c.vi}
   };
@@ -34,6 +36,7 @@ void to_json(nljson_t &j, const complex_struct_t &c) {
 }
 
 void from_json(const nljson_t &j, complex_struct_t &c) {
+  j.at("pod_arr_vec").get_to(c.pod_arr_vec);
   j.at("pod_arr").get_to(c.pod_arr);
   j.at("vi").get_to(c.vi);
 }

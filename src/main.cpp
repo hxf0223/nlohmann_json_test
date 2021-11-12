@@ -2,19 +2,20 @@
 #include <iostream>
 #include <string>
 
-#include "glog/logging.h"
 #include "test_json_data_type.h"
-#include "gtest/gtest.h"
+#include <glog/logging.h>
+#include <gtest/gtest.h>
 
 using namespace json_test;
 
 TEST(json, save) {
   nljson_t js;
   complex_struct_t c;
+  c.pod_arr_vec = std::vector<with_pod_array_t>(2);
   to_json(js, c);
 
   std::ofstream file("test_data.json");
-  file << std::setw(2) << js; // file << js.dump(...)
+  file << js.dump(-1, ' ');
 }
 
 TEST(json, load) {

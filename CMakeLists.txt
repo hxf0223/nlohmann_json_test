@@ -19,7 +19,7 @@ SET(EXECUTABLE_OUTPUT_PATH "${PROJECT_SOURCE_DIR}/bin")
 SET(LIBRARY_OUTPUT_PATH "${PROJECT_SOURCE_DIR}/lib")
 
 include_directories("${PROJECT_SOURCE_DIR}/include")
-include_directories("${GTEST_ROOT}/include")
+include_directories(SYSTEM "${GTEST_ROOT}/include")
 link_directories("${GTEST_ROOT}/lib")
 
 add_subdirectory("src")
