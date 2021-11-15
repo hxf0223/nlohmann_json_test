@@ -1,5 +1,7 @@
 # setup target for data dump library
 set(json_test_src
+  test_vector_of_ptr_type.cpp
+  test_optional_type.cpp
   main.cpp
 )
 

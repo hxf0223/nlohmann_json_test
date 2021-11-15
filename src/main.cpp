@@ -6,9 +6,9 @@
 #include <glog/logging.h>
 #include <gtest/gtest.h>
 
-using namespace json_test;
-
 TEST(json, save) {
+  using namespace json_test;
+
   nljson_t js;
   complex_struct_t c;
   c.pod_arr_vec = std::vector<with_pod_array_t>(2);
@@ -20,6 +20,8 @@ TEST(json, save) {
 }
 
 TEST(json, load) {
+  using namespace json_test;
+
   std::ifstream file("test_data.json");
   if (file.is_open() == false) {
     std::cout << "load file fail" << std::endl;
