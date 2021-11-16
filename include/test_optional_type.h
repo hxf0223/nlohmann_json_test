@@ -8,11 +8,12 @@
 #include <string>
 #include <vector>
 
-// partial specialization (full specialization works too)
 namespace nlohmann {
 using nljson_t = nlohmann::json;
 
-template <typename T> struct adl_serializer<boost::optional<T>> {
+// partial specialization (full specialization works too)
+template <typename T>
+struct adl_serializer<boost::optional<T>> {
   static void to_json(nljson_t &j, const boost::optional<T> &opt) {
     if (opt == boost::none) {
       j = nullptr;
@@ -31,6 +32,7 @@ template <typename T> struct adl_serializer<boost::optional<T>> {
     }
   }
 };
+
 } // namespace nlohmann
 
 namespace test_optional {
