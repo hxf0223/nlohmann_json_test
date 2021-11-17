@@ -4,8 +4,8 @@ project(json_test C CXX)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-set( CMAKE_C_FLAGS "-O0 -g -Wall -rdynamic -std=c++11 -fPIC ${CMAKE_C_FLAGS}" )
-set( CMAKE_CXX_FLAGS "-O0 -g -Wall -rdynamic -std=c++11 -fPIC ${CMAKE_CXX_FLAGS}" )
+set( CMAKE_C_FLAGS "-O0 -g -Wall -rdynamic -std=c++14 -fPIC ${CMAKE_C_FLAGS}" )
+set( CMAKE_CXX_FLAGS "-O0 -g -Wall -rdynamic -std=c++14 -fPIC ${CMAKE_CXX_FLAGS}" )
 
 set(GTEST_ROOT "/usr/local" CACHE STRING "set google test and glog's top dir.")
 message(STATUS "google-test's top dir: ${GTEST_ROOT}")
