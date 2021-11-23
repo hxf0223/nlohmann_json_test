@@ -9,7 +9,9 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/bin/json_test",
-            "args": [],
+            "args": [
+                "--gtest_filter=basename.*"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/bin",
             "environment": [],

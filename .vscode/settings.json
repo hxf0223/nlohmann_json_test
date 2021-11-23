@@ -57,6 +57,10 @@
         "random": "cpp",
         "set": "cpp",
         "string": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "condition_variable": "cpp",
+        "list": "cpp",
+        "mutex": "cpp",
+        "thread": "cpp"
     }
 }
