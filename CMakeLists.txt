@@ -22,5 +22,9 @@ include_directories("${PROJECT_SOURCE_DIR}/include")
 include_directories(SYSTEM "${GTEST_ROOT}/include")
 link_directories("${GTEST_ROOT}/lib")
 
-add_subdirectory("src")
+include_directories("${PROJECT_SOURCE_DIR}/test_lib")
+link_directories("${PROJECT_SOURCE_DIR}/lib")
 
+add_subdirectory("src") # target name json_test
+add_subdirectory("test_lib") # target name test_lib
+add_dependencies(json_test test_lib)
