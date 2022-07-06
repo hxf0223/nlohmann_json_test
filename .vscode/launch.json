@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/bin/json_test",
             "args": [
-                "--gtest_filter=basename.*"
+                "--gtest_filter=json.loadfromstr"
             ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/bin",

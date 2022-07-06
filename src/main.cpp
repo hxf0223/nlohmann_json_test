@@ -29,6 +29,10 @@ TEST(json, load) {
   }
 
   nljson_t j = nljson_t::parse(file);
+  CHECK(j.contains(std::string("pod_arr_vec"))) << "fail, not contain pod_arr_vec";
+  auto js_pod_arr_vec = j["pod_arr_vec"][0];
+  auto r = js_pod_arr_vec.find(std::string("str"));
+  CHECK(r != js_pod_arr_vec.end());
   complex_struct_t c;
 
   from_json(j, c);
@@ -36,6 +40,14 @@ TEST(json, load) {
   nljson_t j2;
   to_json(j2, c);
   LOG(INFO) << j2;
+}
+
+TEST(json, loadfromstr) {
+  std::string js_str = "{\"dso_file\": \"libdemo_rpc_module.so\", \"dso_args\": \"\"}";
+  auto js2 = R"({"dso_file": "libdemo_rpc_module.so", "dso_args": ""})"_json;
+  json_test::nljson_t js = json_test::nljson_t::parse(js_str);
+  LOG(INFO) << js.dump();
+  CHECK(js.find(std::string("dso_file")) != js.end()) << "No dso_file segment: " << js_str;
 }
 
 int main(int argc, char *argv[]) {
